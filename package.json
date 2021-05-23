@@ -1,15 +1,33 @@
 {
-  "name": "kodlar",
+  "name": "reminder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.5.0",
+    "@mikecousins/react-pdf": "^5.5.1",
+    "@pdftron/webviewer": "^7.3.1",
+    "@popperjs/core": "^2.9.1",
+    "@react-three/drei": "^3.11.2",
     "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
+    "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
+    "agora-rtc-react": "git://github.com/AgoraIO-Community/agora-rtc-react.git#v1.0.1",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.0-beta3",
+    "classnames": "^2.3.1",
+    "moment": "^2.29.1",
+    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-player": "^2.9.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.1"
+    "react-three-fiber": "^5.3.21",
+    "react-transition-group": "^4.4.1",
+    "react-use-websocket": "^2.6.1",
+    "three": "^0.126.1",
+    "web-vitals": "^1.1.1",
+    "ws": "^7.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.19.0"
   }
 }
