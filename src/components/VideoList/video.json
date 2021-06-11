@@ -1,0 +1,36 @@
+{
+  "video": [
+    {
+      "id": 1,
+      "videoList": [
+        {
+          "id": 1,
+          "thumbnail": "TN1",
+          "baslik": "baslik1",
+          "aciklama": "aciklama1",
+          "type": "player",
+          "title": "video1",
+          "url": "https://youtu.be/lTvYjERVAnY"
+        },
+        {
+          "id": 2,
+          "thumbnail": "TN2",
+          "baslik": "baslik2",
+          "aciklama": "aciklama2",
+          "type": "player",
+          "title": "video2",
+          "url": "https://youtu.be/kOMWAnxKq58"
+        },
+        {
+          "id": 3,
+          "thumbnail": "TN3",
+          "baslik": "baslik3",
+          "aciklama": "aciklama3",
+          "type": "player",
+          "title": "video3",
+          "url": "https://youtu.be/Cod_ggrs69U"
+        }
+      ]
+    }
+  ]
+}

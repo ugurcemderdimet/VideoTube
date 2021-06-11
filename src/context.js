@@ -1,43 +1,20 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useCallback } from 'react'
 
-const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('a')
-  const [cocktails, setCocktails] = useState([])
+  const [videos, setvideos] = useState([])
 
   const fetchDrinks = useCallback( async () => {
     setLoading(true)
     try {
-      const response = await fetch(`${url}${searchTerm}`)
+      const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${searchTerm}&type=video&key=AIzaSyBgfcC0lnXDqW6rgi8v1bB5HqK_9H1iQu0`)
       const data = await response.json()
-      console.log(data);
-      const { drinks } = data
-      if (drinks) {
-        const newCocktails = drinks.map((item) => {
-          const {
-            idDrink,
-            strDrink,
-            strDrinkThumb,
-            strAlcoholic,
-            strGlass,
-          } = item
-
-          return {
-            id: idDrink,
-            name: strDrink,
-            image: strDrinkThumb,
-            info: strAlcoholic,
-            glass: strGlass,
-          }
-        })
-        setCocktails(newCocktails)
-      } else {
-        setCocktails([])
-      }
+      console.log('--> ', data);
+      setvideos(data.items)
       setLoading(false)
     } catch (error) {
       console.log(error)
@@ -49,7 +26,7 @@ const AppProvider = ({ children }) => {
   }, [searchTerm,fetchDrinks])
   return (
     <AppContext.Provider
-      value={{ loading, cocktails, searchTerm, setSearchTerm }}
+      value={{ loading, videos, searchTerm, setSearchTerm }}
     >
       {children}
     </AppContext.Provider>

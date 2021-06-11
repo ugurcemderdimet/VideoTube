@@ -8,7 +8,7 @@ export default function Home(props) {
   return (
     <main>
       <SearchForm />
-      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      {/* <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' /> */}
       <CocktailList />
 
     </main>
