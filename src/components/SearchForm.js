@@ -1,5 +1,8 @@
 import React from 'react'
 import { useGlobalContext } from '../context'
+import _ from "lodash"
+
+
 export default function SearchForm() {
   const { setSearchTerm } = useGlobalContext()
   const searchValue = React.useRef('')
@@ -8,9 +11,11 @@ export default function SearchForm() {
     searchValue.current.focus()
   }, [])
 
-  function searchCocktail() {
-    setSearchTerm(searchValue.current.value)
-  }
+  const searchVideo = _.debounce((e) => {
+    setSearchTerm(searchValue.current.value);
+  }, 2000)
+
+
   function handleSubmit(e) {
     e.preventDefault()
   }
@@ -18,13 +23,13 @@ export default function SearchForm() {
     <section className='section search'>
       <form className='search-form' onSubmit={handleSubmit}>
         <div className='form-control'>
-          <label htmlFor='name'>search your favorite cocktail</label>
+          <label htmlFor='name'>search your video</label>
           <input
             type='text'
             name='name'
             id='name'
             ref={searchValue}
-            onChange={searchCocktail}
+            onChange={searchVideo}
           />
         </div>
       </form>
