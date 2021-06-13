@@ -6,6 +6,7 @@ import Error from "./pages/Error";
 import Navbar from "./components/Navbar";
 import fire  from "./fire";
 import First from "./Login/First";
+import Download from "./pages/Download";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/download">
+          <Download />
         </Route>
         <Route path="*">
           <Error />

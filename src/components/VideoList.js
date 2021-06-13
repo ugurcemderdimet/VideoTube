@@ -21,12 +21,12 @@ export default function VideoList() {
       <div className='videos-center'>
         {videos && videos.map((item) => {
           return(
-            <>
+            <div>
             <ReactPlayer url={`https://www.youtube.com/watch?v=${item.id.videoId}`} width="100%" />
-            <a href={`/about?qr=${item.id.videoId}`}>
-            <img src={"download.png"}/>
+            <a href={`/download?qr=${item.id.videoId}`}>
+            <img className="download" src={"download.png"}/>
             </a>
-            </>
+            </div>
           )
         })}
       </div>

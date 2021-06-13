@@ -1,5 +1,4 @@
 import React from "react";
-import Download from "../components/Download";
 
 export default function About() {
   return (
@@ -14,7 +13,6 @@ export default function About() {
         hic aspernatur error blanditiis?
       </p>
     </section>
-    <Download />
     </>
   );
 }
