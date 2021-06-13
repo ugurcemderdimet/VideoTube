@@ -19,12 +19,15 @@ export default function VideoList() {
     <section className='section'>
       <h2 className='section-title'>Videos</h2>
       <div className='videos-center'>
-      
         {videos && videos.map((item) => {
-          <>
-          <ReactPlayer url={`https://www.youtube.com/watch?v=${item.id.videoId}`} width="100%" />
-          <img src={"download.png"}/>
-          </>
+          return(
+            <>
+            <ReactPlayer url={`https://www.youtube.com/watch?v=${item.id.videoId}`} width="100%" />
+            <a href={`/about?qr=${item.id.videoId}`}>
+            <img src={"download.png"}/>
+            </a>
+            </>
+          )
         })}
       </div>
     </section>

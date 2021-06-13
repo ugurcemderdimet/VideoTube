@@ -13,6 +13,9 @@ app.get('/',(req,res) => {
 
     const sqlInsert = "INSERT INTO movie_reviews (movieName, movieReview) VALUES ('Inception', 'good movie')"
     db.query(sqlInsert, (err,result) =>{
+        if(err){
+            return res.send(err);
+        }
         res.send("hello world");
     } )
     

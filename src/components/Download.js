@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 
 function Download() {
+    console.log(window.location.href);
+    
+
+    let [search, setSearch] = useState("");
+
+    useEffect(()=>{
+        let query = window.location.href.split('?qr=');
+        if(query[1]){
+            setSearch(query[1]);
+        }
+    }, []
+    )
+
+    
+
   return (
     <>
       <div className="application">
@@ -31,7 +46,7 @@ function Download() {
         <iframe
           id="iccerceve"
           frameborder="0"
-          src="https://yt1s.com/tr1"
+          src={`https://yt1s.com/tr1${search === "" ? "" : `?q=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D${search}`} `}
           scrolling="no"
           style={{width: "550px", height: "900px",  overflow: "hidden", zIndex: "-1", marginBottom: "50px"}}
         ></iframe>
