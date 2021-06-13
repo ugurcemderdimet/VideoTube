@@ -4,6 +4,8 @@ import { useCallback } from 'react'
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
+  const [user, setUser] = useState("");
+  const [hasAccount, setHasAccount] = useState(false);
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('a')
   const [videos, setvideos] = useState([])
@@ -27,7 +29,7 @@ const AppProvider = ({ children }) => {
   }, [searchTerm,fetchDrinks])
   return (
     <AppContext.Provider
-      value={{ loading, videos, searchTerm, setSearchTerm }}
+      value={{ loading, videos, searchTerm, setSearchTerm, user, setUser, hasAccount, setHasAccount }}
     >
       {children}
     </AppContext.Provider>

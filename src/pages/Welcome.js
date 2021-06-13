@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router";
 import fire from "firebase";
 import Login from "./Login";
-import "./First.css";
+import Logout from "./Logout";
+import "./Login.css";
+import { useGlobalContext } from '../context'
 
 const First = () => {
-  const [use, setUser] = useState("");
+  const { user, setUser, hasAccount, setHasAccount } = useGlobalContext()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [hasAccount, setHasAccount] = useState(false);
 
   const clearInputs = () => {
     setEmail("");
@@ -25,6 +27,9 @@ const First = () => {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        return (<Redirect to="/home" />)
+      })
       .catch((err) => {
         switch (err.code) {
           case "auth/invalid-email":
@@ -57,27 +62,43 @@ const First = () => {
   };
   const handleLogout = () => {
     fire.auth().signOut();
+    return (<Redirect to="/" />)
   };
 
   const authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        clearInputs();
-        setUser(user);
-      } else {
-        setUser("");
-      }
-    });
+    if(user === ""){
+      fire.auth().onAuthStateChanged((userr) => {
+        console.log(userr);
+        // alert("asd")
+        if (userr) {
+          clearInputs();
+          setUser(userr);
+          return (<Redirect to="/home" />)
+          window.location.href = '/home';
+        } else {
+          setUser("");
+        }
+      });
+    }
+    
   };
   useEffect(() => {
     authListener();
   });
 
   return (
+    <>
+    { user ? (
+      
+       <Redirect to="/home" />
+    ):(
+
+    
     <Login
       email={email}
       setEmail={setEmail}
       password={password}
+      setPassword={setPassword}
       handleLogin={handleLogin}
       handleSignup={handleSignup}
       hasAccount={hasAccount}
@@ -85,6 +106,8 @@ const First = () => {
       emailError={emailError}
       passwordError={passwordError}
     />
+    )}
+    </>
   );
 };
 
