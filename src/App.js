@@ -4,15 +4,16 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Error from "./pages/Error";
 import Navbar from "./components/Navbar";
-import Login from "./Login/Login";
+import fire  from "./fire";
+import First from "./Login/First";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Switch>
-      <Route exact path="/login">
-          <Login />
+        <Route exact path="/first">
+          <First />
         </Route>
         <Route exact path="/">
           <Home />
