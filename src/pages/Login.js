@@ -17,38 +17,40 @@ const Login = (props) => {
   return (
     <section className="login">
       <div className="loginContainer">
-        <label>Username</label>
+        <label>Kullanıcı Mail Adresi</label>
         <input
           type="text"
           autoFocus
           required
           value={email}
+          placeholder="admin@hotmail.com"
           onChange={(e) => setEmail(e.target.value)}
         />
         <p className="errorMsg">{emailError}</p>
-        <label>Password</label>
+        <label>Şifre</label>
         <input
           type="password"
           required
           value={password}
+          placeholder="******"
           onChange={(e) => setPassword(e.target.value)}
         />
         <p className="errorMsg">{passwordError}</p>
         <div className="btnContainer">
           {hasAccount ? (
             <>
-              <button onClick={handleLogin}>Sign in</button>
+              <button onClick={handleLogin}>GİRİŞ YAP</button>
               <p>
-                Don't have an account?
-                <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span>
+                Bir hesabın yok mu?
+                <span onClick={() => setHasAccount(!hasAccount)}>KAYIT OL</span>
               </p>
             </>
           ) : (
             <>
-              <button onClick={handleSignup}>Sign up</button>
+              <button onClick={handleSignup}>KAYIT OL</button>
               <p>
-                Have an account?{" "}
-                <span onClick={() => setHasAccount(!hasAccount)}>Sign in</span>
+                Zaten bir hesabın var mı?{" "}
+                <span onClick={() => setHasAccount(!hasAccount)}>GİRİŞ YAP</span>
               </p>
             </>
           )}
