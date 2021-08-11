@@ -4,9 +4,9 @@ export default function Error() {
   return (
     <section className="error-page section">
       <div className="error-container">
-        <h1>Önce giriş yapmalısınız.</h1>
+        <h1>You have to login first.</h1>
         <Link to="/" className="btn btn-primary">
-          Giriş Yap
+          Sign in
         </Link>
       </div>
     </section>

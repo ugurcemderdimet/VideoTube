@@ -17,7 +17,7 @@ const Login = (props) => {
   return (
     <section className="login">
       <div className="loginContainer">
-        <label>Kullanıcı Mail Adresi</label>
+        <label>User Mail Adress</label>
         <input
           type="text"
           autoFocus
@@ -27,7 +27,7 @@ const Login = (props) => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <p className="errorMsg">{emailError}</p>
-        <label>Şifre</label>
+        <label>Password</label>
         <input
           type="password"
           required
@@ -39,18 +39,18 @@ const Login = (props) => {
         <div className="btnContainer">
           {hasAccount ? (
             <>
-              <button onClick={handleLogin}>GİRİŞ YAP</button>
+              <button onClick={handleLogin}>LOG IN</button>
               <p>
-                Bir hesabın yok mu?
-                <span onClick={() => setHasAccount(!hasAccount)}>KAYIT OL</span>
+                Don't you have an account?
+                <span onClick={() => setHasAccount(!hasAccount)}>SIGN UP</span>
               </p>
             </>
           ) : (
             <>
-              <button onClick={handleSignup}>KAYIT OL</button>
+              <button onClick={handleSignup}>SIGN UP</button>
               <p>
-                Zaten bir hesabın var mı?{" "}
-                <span onClick={() => setHasAccount(!hasAccount)}>GİRİŞ YAP</span>
+                You already have an account?{" "}
+                <span onClick={() => setHasAccount(!hasAccount)}>LOG IN</span>
               </p>
             </>
           )}

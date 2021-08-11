@@ -13,8 +13,10 @@ const AppProvider = ({ children }) => {
   const fetchVideos = useCallback(async () => {
     setLoading(true);
     try {
-      /*  `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=9&q=${searchTerm}&type=video&key=AIzaSyBgfcC0lnXDqW6rgi8v1bB5HqK_9H1iQu0`  */
-      const response = await fetch("");
+      console.log(searchTerm);
+      const response = await fetch(
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${searchTerm}&type=video&key=AIzaSyBgfcC0lnXDqW6rgi8v1bB5HqK_9H1iQu0`
+      );
       const data = await response.json();
       console.log("--> ", data);
       setvideos(data.items);
