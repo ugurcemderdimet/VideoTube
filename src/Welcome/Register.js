@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Welcome.css";
+// import "./Welcome.css";
 
 const Register = (currentIndex) => {
   const [email, setEmail] = useState("");
